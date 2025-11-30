@@ -14,6 +14,10 @@
             "value": "application/json"
           }
         ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"name\": \"User\", \"email\": \"test@test.com\", \"password\": \"123456\"}"
+        },
         "url": {
           "raw": "{{base}}/auth/register",
           "host": [
@@ -36,6 +40,10 @@
             "value": "application/json"
           }
         ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\": \"test@test.com\", \"password\": \"123456\"}"
+        },
         "url": {
           "raw": "{{base}}/auth/login",
           "host": [
@@ -44,6 +52,153 @@
           "path": [
             "auth",
             "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Profile",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/users/me",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "users",
+            "me"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"Sample Task\", \"description\": \"Task description\"}"
+        },
+        "url": {
+          "raw": "{{base}}/tasks",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "tasks"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Tasks",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/tasks",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "tasks"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Toggle Task Complete",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/tasks/:id/complete",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "tasks",
+            ":id",
+            "complete"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"title\": \"Updated Title\", \"description\": \"Updated description\"}"
+        },
+        "url": {
+          "raw": "{{base}}/tasks/:id",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "tasks",
+            ":id"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base}}/tasks/:id",
+          "host": [
+            "{{base}}"
+          ],
+          "path": [
+            "tasks",
+            ":id"
           ]
         }
       }
