@@ -1,0 +1,1 @@
+React frontend to interact with backend API. Set REACT_APP_API to backend endpoint.
